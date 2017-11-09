@@ -5,15 +5,14 @@ const port = process.argv[2] || 3000;
 const express = require('express');
 
 // import de swagger
-const swagger = require("swagger-node-express");
+const swaggerUi = require("swagger-ui-express"), swaggerDocument = require('../resources/swagger.json');
 
 // Create the application.
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded());
 
-// Couple the application to the Swagger module.
-swagger.setAppHandler(app);
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // import de body-parser
 const bodyParser = require('body-parser');
