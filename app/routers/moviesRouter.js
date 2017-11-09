@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 // inclure les controleurs 
 const MoviesCtrl = require('../controllers/moviesCtrl');
