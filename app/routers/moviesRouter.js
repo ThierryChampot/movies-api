@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 // inclure les controleurs 
-const MoviesCtrl = require('./controllers/moviesCtrl');
-const moviesCtrl = new moviesCtrl();
+const MoviesCtrl = require('../controllers/moviesCtrl');
+const moviesCtrl = new MoviesCtrl();
 
 // réponse à l'url "/movies"
 router.get('/', function(req, res) {

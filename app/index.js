@@ -11,7 +11,7 @@ const app = express();
 const bodyParser = require('body-parser');
 
 // importer les routeurs
-var moviesRouter = require('./movieRouter');
+const moviesRouter = require('./routers/moviesRouter');
 
 // attribuer les routes aux routeurs
 app.use('/movies', moviesRouter);
