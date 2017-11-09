@@ -7,8 +7,13 @@ const express = require('express');
 // import de swagger
 const swagger = require("swagger-node-express");
 
-// instanciation de l'objet express
+// Create the application.
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded());
+
+// Couple the application to the Swagger module.
+swagger.setAppHandler(app);
 
 // import de body-parser
 const bodyParser = require('body-parser');
