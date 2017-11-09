@@ -7,21 +7,15 @@ const express = require('express');
 // instanciation de l'objet express
 const app = express();
 
-// import de fs
-const fs = require('fs');
-
-// import de path
-const path = require('path');
-
 // import de body-parser
 const bodyParser = require('body-parser');
 
-// inclure les controleurs 
-const moviesCtrl = require('./controllers/moviesCtrl');
-const moviesCtrl = new moviesCtrl();
+// importer les routeurs
+var moviesRouter = require('./movieRouter');
 
-// réponse à l'url "/movies"
-app.get('/movies', moviesCtrl.getMovies.bind(moviesCtrl));
+// attribuer les routes aux routeurs
+app.use('/movies', moviesRouter);
 
 // lancement du serveur
 app.listen(port, () => console.log(`TEST Server running at http://127.0.0.1:${port}`));
+
