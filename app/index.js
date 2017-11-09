@@ -22,12 +22,8 @@ const moviesRouter = require('./routers/moviesRouter');
 
 // MYSQL
 const mysql      = require('mysql');
-const connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'YOUR_USERNAME',
-  password : 'YOUR_PASSWORD',
-  database : 'THE_DATABASE_NAME'
-});
+const database = require('../config/config').database;
+const connection = mysql.createConnection(database);
 
 connection.connect(function(err){
     if(!err) {
