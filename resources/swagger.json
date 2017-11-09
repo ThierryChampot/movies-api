@@ -1,0 +1,193 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Movies API",
+    "description": "API to manage movie data"
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Movies",
+      "description": "API for movies in the system"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/movies/{id}/actors": {
+      "get": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Get the cast from one movie",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PeopleList"
+            }
+          }
+        }
+      }
+    },
+    "/movies/{id}": {
+      "get": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Get one movie",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Movie"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Update one movie",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Movie"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Delete one movie",
+        "responses": {
+          "204": {
+            "description": "Deleted"
+          }
+        }
+      }
+    },
+    "/movies": {
+      "get": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Get all movies",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Movies"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Create a new movie",
+        "parameters": [
+          {
+            "name": "movie",
+            "in": "body",
+            "description": "Movie that we want to create",
+            "schema": {
+              "$ref": "#/definitions/Movie"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/Movie"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Movie": {
+      "required": [
+        "imdbId",
+        "title",
+        "year",
+        "plot",
+        "rating",
+        "votes",
+        "runtime",
+        "dateCreated",
+        "dateModified"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "imdbId": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "year": {
+          "type": "integer"
+        },
+        "plot": {
+          "type": "string"
+        },
+        "rating": {
+          "type": "number"
+        },
+        "votes": {
+          "type": "integer"
+        },
+        "runtime": {
+          "type": "integer"
+        },
+        "trailerId": {
+          "type": "string"
+        },
+        "dateCreated": {
+          "type": "string"
+        },
+        "dateModified": {
+          "type": "string"
+        }
+      }
+    },
+    "Movies": {
+      "type": "array",
+      "$ref": "#/definitions/Movie"
+    },
+    "People": {
+      "required": ["name"],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "PeopleList": {
+      "type": "array",
+      "$ref": "#/definitions/People"
+    }
+  }
+}

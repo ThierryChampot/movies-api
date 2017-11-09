@@ -10,7 +10,8 @@
     "express": "^4.15.3",
     "mysql": "^2.15.0",
     "node-mysql": "^0.4.2",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "swagger-ui-express": "^2.0.9"
   },
   "devDependencies": {},
   "scripts": {
