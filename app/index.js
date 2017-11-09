@@ -4,6 +4,9 @@ const port = process.argv[2] || 3000;
 // import d'express
 const express = require('express');
 
+// import de swagger
+const swagger = require("swagger-node-express");
+
 // instanciation de l'objet express
 const app = express();
 
