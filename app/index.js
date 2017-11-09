@@ -20,31 +20,32 @@ const bodyParser = require('body-parser');
 // importer les routeurs
 const moviesRouter = require('./routers/moviesRouter');
 
-// importer la connexion à la base de données
-const db = require('node-mysql');
-const DB = db.DB;
-const BaseRow = db.Row;
-const BaseTable = db.Table;
+// MYSQL
+const mysql      = require('mysql');
+const connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'YOUR_USERNAME',
+  password : 'YOUR_PASSWORD',
+  database : 'THE_DATABASE_NAME'
+});
 
-// // se connecter à la base de données
-const config = require('../config/config');
-const box = new DB(config.database);
-
-// // tester la connexion à la base de données
-// var basicTest = function(cb) {
-//     box.connect(function(conn, cb) {
-//         cps.seq([
-//             function(_, cb) {
-//                 conn.query('select * from genre', cb);
-//             },
-//             function(res, cb) {
-//                 console.log(res);
-//                 cb();
-//             }
-//         ], cb);
-//     }, cb);
-// };
-
+connection.connect(function(err){
+    if(!err) {
+        console.log("Database is connected ... nn");    
+    } else {
+        console.log("Error connecting database ... nn");    
+    }
+    });
+    
+    app.get("/",function(req,res){
+    connection.query('SELECT * from movie LIMIT 20', function(err, rows, fields) {
+    connection.end();
+      if (!err)
+        console.log('The solution is: ', rows);
+      else
+        console.log('Error while performing Query.');
+      });
+    });
 
 // attribuer les routes aux routeurs
 app.use('/movies', moviesRouter);
