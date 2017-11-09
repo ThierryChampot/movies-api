@@ -21,17 +21,17 @@ router.get('/:id/actors', function(req,res) {
     });
 
 // réponse à l'url "/movies/:id/directors"
-router.get(':id/directors', function(req,res) {
+router.get('/:id/directors', function(req,res) {
     moviesCtrl.getDirectorsByMovieId.bind(moviesCtl);
 })
 
 // réponse à l'url "/movies/:id/writers"
-router.get(':id/writers', function(req,res) {
+router.get('/:id/writers', function(req,res) {
     moviesCtrl.getWritersByMovieId.bind(moviesCtrl);
     });
 
 // réponse à l'url "/movies/:id/genres"
-router.get(':id/writers', function(req,res) {
+router.get('/:id/writers', function(req,res) {
     moviesCtrl.getWritersByMovieId.bind(moviesCtrl);
     });
 

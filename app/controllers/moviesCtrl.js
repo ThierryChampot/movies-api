@@ -7,6 +7,7 @@ class MoviesCtrl
 				{'id':2,'title':'super film 2'}
 			]
 	}
+	
 	getMovieById(req, res)
 	{
 		return res.json({'id':1,'title':'super film 2'})
@@ -17,7 +18,7 @@ class MoviesCtrl
 		return res.json({'id':14, 'name':'Reaves'})
 	}
 
-	getDirectorByMovieId(req,res)
+	getDirectorsByMovieId(req,res)
 	{
 		return res.json({'id':15, 'name':'Director'})
 	}
