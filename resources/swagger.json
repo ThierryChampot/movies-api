@@ -14,7 +14,8 @@
     }
   ],
   "schemes": [
-    "http"
+    "http",
+    "https"
   ],
   "consumes": [
     "application/json"
@@ -22,6 +23,15 @@
   "produces": [
     "application/json"
   ],
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-KEY"
+      }
+    }
+  },
   "paths": {
     "/movies/{id}": {
       "get": {
@@ -51,6 +61,11 @@
       "put": {
         "tags": [
           "Movies"
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
         ],
         "summary": "Update one movie",
         "parameters": [
@@ -84,6 +99,11 @@
       "delete": {
         "tags": [
           "Movies"
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
         ],
         "summary": "Delete one movie",
         "parameters": [
@@ -124,6 +144,11 @@
       "post": {
         "tags": [
           "Movies"
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
         ],
         "summary": "Create a new movie",
         "parameters": [
