@@ -31,7 +31,6 @@ class MovieModel {
             else
                 callback('Error while performing Query.', [])
         });
-
     };
 }
 

@@ -146,6 +146,25 @@
           }
         }
       }
+    },
+    "/genres": {
+      "get": {
+        "tags": [
+          "Genres"
+        ],
+        "summary": "Get all genres",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Genre"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -215,6 +234,21 @@
     "PeopleList": {
       "type": "array",
       "$ref": "#/definitions/People"
+    },
+    "Genre": {
+      "required": ["name"],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Genres": {
+      "type": "array",
+      "$ref": "#/definitions/Genre"
     }
   }
 }
