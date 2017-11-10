@@ -1,16 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const MoviesModel = require('../models/moviesModel');
-let moviesModel = new MoviesModel();
+const connection = require('../dbConnector');
+const MovieModel = require('../models/moviesModel');
 
-
-//\\ GET //\\
+const movieModel = new MovieModel(connection);
 
 // réponse à l'url "/movies"
 router.get('/', function(req, res) {
-
-    movies = moviesModel.getMovies();
-    return res.json(movies)
+    movieModel.getAll(function(err, data) {
+        if(err) {
+            console.log(err)
+        } else {
+            return res.json(data)
+        }
+    })
 });
 
 // réponse à l'url "/movies/:id"
