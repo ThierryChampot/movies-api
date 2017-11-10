@@ -23,28 +23,6 @@ app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // import de body-parser
 const bodyParser = require('body-parser');
 
-// const mysql      = require('mysql');
-// const database = require('../config/config').database;
-// const connection = mysql.createConnection(database);
-
-// connection.connect(function(err){
-//     if(!err) {
-//         console.log("Database is connected ... nn");    
-//     } else {
-//         console.log("Error connecting database ... nn");    
-//     }
-//     });
-    
-//     app.get("/",function(req,res){
-//     connection.query('SELECT * from movie LIMIT 20', function(err, rows, fields) {
-//     connection.end();
-//       if (!err)
-//         console.log('The solution is: ', rows);
-//       else
-//         console.log('Error while performing Query.');
-//       });
-//     });
-
 // importer les routeurs
 const moviesRouter = require('./routers/moviesRouter');
 const genresRouter = require('./routers/genresRouter');
