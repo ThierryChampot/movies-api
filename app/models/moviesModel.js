@@ -1,9 +1,9 @@
 class MoviesModel {
 
     // get an array of all movies
-    getMovies(res) {
+    getMovies() {
 
-        return res.json([
+        return [
             {
                 "id":1,
                 "imdbId": "imdb ID",
@@ -30,7 +30,7 @@ class MoviesModel {
                 "dateCreated": "2016-02-19",
                 "dateModified": "2016-02-20"
             },
-        ])
+        ]
     }
 
     // get an array of a movies by genre
@@ -39,9 +39,9 @@ class MoviesModel {
     }
 
     // get an array of a movie details by id
-    getMovieDetails(res) {
+    getMovieDetails() {
 
-        return res.json({
+        return {
             "id":1,
             "imdbId": "imdb ID",
             "title": "Super titre",
@@ -53,7 +53,7 @@ class MoviesModel {
             "trailerId": "youtube ID",
             "dateCreated": "2016-02-21",
             "dateModified": "2016-02-21"
-        })
+        }
     }
 
     // post a new movie

@@ -1,4 +1,4 @@
-class PeopleModels {
+class PeopleModel {
 
     // get an array of all people
     getPeople() {
@@ -36,4 +36,4 @@ class PeopleModels {
     }
 }
 
-module.exports = PeopleModels;
+module.exports = PeopleModel;

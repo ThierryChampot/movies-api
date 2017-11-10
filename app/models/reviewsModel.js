@@ -1,4 +1,4 @@
-class ReviewsModels {
+class ReviewsModel {
 
     // Get an array of reviews by movie id
     getReviews() {
@@ -26,4 +26,4 @@ class ReviewsModels {
     }
 }
 
-module.exports = ReviewsModels;
+module.exports = ReviewsModel;

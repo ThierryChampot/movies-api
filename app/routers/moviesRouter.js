@@ -9,14 +9,16 @@ let moviesModel = new MoviesModel();
 // réponse à l'url "/movies"
 router.get('/', function(req, res) {
 
-    moviesModel.getMovies(res);
+    movies = moviesModel.getMovies();
+    return res.json(movies)
 });
 
 // réponse à l'url "/movies/:id"
 router.get('/:id', function(req, res) {
 
-    moviesModel.getMovieDetails(res)
+    movie = moviesModel.getMovieDetails();
     // Ajouter les détails acteurs...
+    return res.json(movie)
 });
 
 
@@ -24,7 +26,9 @@ router.get('/:id', function(req, res) {
 
 router.post('/', function (req, res) {
 
-    moviesModel.newMovie()
+    movie = moviesModel.newMovie();
+    // Ajouter les new genre/acteur etc...
+    return res.json(movie)
 });
 
 module.exports = router;

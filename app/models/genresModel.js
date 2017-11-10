@@ -1,4 +1,4 @@
-class GenresModels {
+class GenresModel {
 
     // get an array of all genres
     getGenres() {
@@ -36,4 +36,4 @@ class GenresModels {
     }
 }
 
-module.exports = GenresModels;
+module.exports = GenresModel;
