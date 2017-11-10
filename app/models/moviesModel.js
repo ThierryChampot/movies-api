@@ -1,76 +1,38 @@
-class MoviesModel {
-
-    // get an array of all movies
-    getMovies() {
-
-        return [
-            {
-                "id":1,
-                "imdbId": "imdb ID",
-                "title": "Super titre",
-                "year": 2006,
-                "plot": "si j'avais 10 dollars",
-                "rating": 8,
-                "votes": 666,
-                "runtime": 42,
-                "trailerId": "youtube ID",
-                "dateCreated": "2016-02-21",
-                "dateModified": "2016-02-21"
-            },
-            {
-                "id":2,
-                "imdbId": "imdb ID2",
-                "title": "Super titre 2",
-                "year": 2006,
-                "plot": "j'irais au super sexe",
-                "rating": 7,
-                "votes": 696,
-                "runtime": 21,
-                "trailerId": "youtube ID",
-                "dateCreated": "2016-02-19",
-                "dateModified": "2016-02-20"
-            },
-        ]
+class MovieModel {
+    constructor (db) {
+        this.db = db;
     }
 
-    // get an array of a movies by genre
-    getMovieByGenre() {
+    getAll(callback) {
+        const movies = [];
+        this.db.query("SELECT * FROM movie LIMIT 10", function(err, rows, fields) {
+            // this.db.end();
+            if (!err) {
+                rows.forEach(movie => {
+                    console.log(movie.title);
+                    const obj = {
+                        "id": movie.id,
+                        "imdbId": movie.imdbId,
+                        "title": movie.title,
+                        "year": movie.year,
+                        "plot": movie.plot,
+                        "rating": movie.rating,
+                        "votes": movie.votes,
+                        "runtime": movie.runtime,
+                        "trailerId": movie.trailerId,
+                        "dateCreated": movie.dateCreated,
+                        "dateModified": movie.dateModified
+                    };
+                    movies.push(obj);
+                });
 
-    }
+                callback(null, movies);
+            }
+            else
+                callback('Error while performing Query.', [])
+        });
 
-    // get an array of a movie details by id
-    getMovieDetails() {
-
-        return {
-            "id":1,
-            "imdbId": "imdb ID",
-            "title": "Super titre",
-            "year": 2006,
-            "plot": "si j'avais 10 dollars",
-            "rating": 8,
-            "votes": 666,
-            "runtime": 42,
-            "trailerId": "youtube ID",
-            "dateCreated": "2016-02-21",
-            "dateModified": "2016-02-21"
-        }
-    }
-
-    // post a new movie
-    newMovie() {
-
-    }
-
-
-    // edit a movie by id
-    editMovie() {
-
-    }
-
-    // delete a movie by id
-    deleteMovie() {
-
-    }
+    };
 }
 
-module.exports = MoviesModel;
+module.exports = MovieModel;
