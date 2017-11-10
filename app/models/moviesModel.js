@@ -33,8 +33,8 @@ class MoviesModel {
         ]
     }
 
-    // get an array of a movies by genre
-    getMovieByGenre() {
+    // get an array of movies by genre
+    getMoviesByGenre() {
 
     }
 
