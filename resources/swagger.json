@@ -23,28 +23,22 @@
     "application/json"
   ],
   "paths": {
-    "/movies/{id}/actors": {
-      "get": {
-        "tags": [
-          "Movies"
-        ],
-        "summary": "Get the cast from one movie",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/PeopleList"
-            }
-          }
-        }
-      }
-    },
     "/movies/{id}": {
       "get": {
         "tags": [
           "Movies"
         ],
         "summary": "Get one movie",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of movie to fetch",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -59,6 +53,25 @@
           "Movies"
         ],
         "summary": "Update one movie",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of movie to update",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "movie",
+            "in": "body",
+            "required": true,
+            "description": "Movie that we want to create",
+            "schema": {
+              "$ref": "#/definitions/Movie"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -73,6 +86,16 @@
           "Movies"
         ],
         "summary": "Delete one movie",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of movie to delete",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
         "responses": {
           "204": {
             "description": "Deleted"
@@ -90,7 +113,10 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Movies"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Movie"
+              }
             }
           }
         }
@@ -104,6 +130,7 @@
           {
             "name": "movie",
             "in": "body",
+            "required": true,
             "description": "Movie that we want to create",
             "schema": {
               "$ref": "#/definitions/Movie"
