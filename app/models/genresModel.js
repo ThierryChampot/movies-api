@@ -1,8 +1,29 @@
 class GenresModel {
+    constructor (db) {
+        this.db = db;
+    }
+
 
     // get an array of all genres
-    getGenres() {
+    getAll(callback) {
 
+        const genres = [];
+        this.db.query("SELECT * FROM genre", function(err, rows, fields) {
+            // this.db.end();
+            if (!err) {
+                rows.forEach(genre => {
+                    const obj = {
+                        "id": genre.id,
+                        "name": genre.name,
+                    };
+                    genres.push(obj);
+                });
+
+                callback(null, genres);
+            }
+            else
+                callback('Error while performing Query.', [])
+        });
     }
 
     // get an array of genres by movie id
