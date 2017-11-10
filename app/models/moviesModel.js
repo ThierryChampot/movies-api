@@ -1,6 +1,5 @@
 class MoviesModel {
 
-
     // get an array of all movies
     getMovies(res) {
 
@@ -35,7 +34,7 @@ class MoviesModel {
     }
 
     // get an array of a movies by genre
-    getMovieByGenre(){
+    getMovieByGenre() {
 
     }
 
@@ -64,12 +63,12 @@ class MoviesModel {
 
 
     // edit a movie by id
-    editMovie(){
+    editMovie() {
 
     }
 
     // delete a movie by id
-    deleteMovie(){
+    deleteMovie() {
 
     }
 }
