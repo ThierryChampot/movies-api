@@ -1,6 +1,6 @@
 class MoviesCtrl
 {
-    getMovies(req, res)
+    getMovies()
     {
         return res.json([
                 {'id':1,'title':'super film 2'},
@@ -8,22 +8,22 @@ class MoviesCtrl
             ])
     }
     
-    getMovieById(req, res)
+    getMovieById(id)
     {
         return res.json({'id':1,'title':'super film 2'})
     }
 
-    getActorsByMovieId(req,res)
+    getActorsByMovieId(id)
     {
         return res.json({'id':14, 'name':'Reaves'})
     }
 
-    getDirectorsByMovieId(req,res)
+    getDirectorsByMovieId(id)
     {
         return res.json({'id':15, 'name':'Director'})
     }
 
-    getWritersByMovieId(req,res)
+    getWritersByMovieId(id)
     {
         return res.json({'id':15, 'name':'WriterName'})
     }
