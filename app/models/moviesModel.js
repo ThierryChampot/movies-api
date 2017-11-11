@@ -43,6 +43,49 @@ class MovieModel {
                 callback('Error while performing Query.', {})
         });
     };
+
+    createMovie(body, callback) {
+        console.log(body.title);
+        const instant = Date.now();
+        const sql =
+            "INSERT INTO movie " +
+            "(imdbId, title, year, plot, rating, votes, runtime, trailerId, dateCreated, dateModified) " +
+            "VALUES ?";
+        const values = [
+            [
+                body.imdbId,
+                body.title,
+                body.year,
+                body.plot,
+                body.rating,
+                body.votes,
+                body.runtime,
+                body.trailerId,
+                instant,
+                instant
+            ]
+        ];
+
+        this.db.query(sql, [values], function(err, result) {
+            // this.db.end();
+            if (!err) {
+                callback(null, result);
+            }
+            else
+                callback('Error while performing Query.', {})
+        });
+    };
+
+    deleteMovie(id, callback) {
+        this.db.query("DELETE FROM movie WHERE id = ?", [id], function(err, rows, fields) {
+            // this.db.end();
+            if (!err) {
+                callback(null, {});
+            }
+            else
+                callback('Error while performing Query.', {})
+        });
+    };
 }
 
 module.exports = MovieModel;
