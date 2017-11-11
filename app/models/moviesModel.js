@@ -75,6 +75,17 @@ class MovieModel {
                 callback('Error while performing Query.', {})
         });
     };
+
+    deleteMovie(id, callback) {
+        this.db.query("DELETE FROM movie WHERE id = ?", [id], function(err, rows, fields) {
+            // this.db.end();
+            if (!err) {
+                callback(null, {});
+            }
+            else
+                callback('Error while performing Query.', {})
+        });
+    };
 }
 
 module.exports = MovieModel;
