@@ -32,6 +32,17 @@ class MovieModel {
                 callback('Error while performing Query.', [])
         });
     };
+
+    getMovieById(id, callback) {
+        this.db.query("SELECT * FROM movie WHERE id = ?", [id], function(err, rows, fields) {
+            // this.db.end();
+            if (!err) {
+                callback(null, rows[0]);
+            }
+            else
+                callback('Error while performing Query.', {})
+        });
+    };
 }
 
 module.exports = MovieModel;

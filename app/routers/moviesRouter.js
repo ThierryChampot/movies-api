@@ -18,10 +18,16 @@ router.get('/', function(req, res) {
 
 // réponse à l'url "/movies/:id"
 router.get('/:id', function(req, res) {
+    const id = req.params.id;
 
-    movie = moviesModel.getMovieDetails();
-    // Ajouter les détails acteurs...
-    return res.json(movie)
+    movieModel.getMovieById(id, function(err, data) {
+        if(err) {
+            console.log(err)
+        } else {
+            // Ajouter les détails acteurs...
+            return res.json(data)
+        }
+    });
 });
 
 
