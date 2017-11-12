@@ -241,10 +241,6 @@
         }
       }
     },
-    "Movies": {
-      "type": "array",
-      "$ref": "#/definitions/Movie"
-    },
     "People": {
       "required": ["name"],
       "properties": {
@@ -255,10 +251,6 @@
           "type": "string"
         }
       }
-    },
-    "PeopleList": {
-      "type": "array",
-      "$ref": "#/definitions/People"
     },
     "Genre": {
       "required": ["name"],
