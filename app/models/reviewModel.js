@@ -10,7 +10,7 @@ class ReviewModel {
 
     // Create a new review by movie id
     createReview(body, callback) {
-        const instant = Date.now();
+        const instant = new Date(Date.now()).toISOString();
         const sql =
             "INSERT INTO review " +
             "(username, title, content, movieId, dateCreated) " +
