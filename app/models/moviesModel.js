@@ -46,7 +46,7 @@ class MovieModel {
 
     createMovie(body, callback) {
         console.log(body.title);
-        const instant = Date.now();
+        const instant = new Date(Date.now()).toISOString();
         const sql =
             "INSERT INTO movie " +
             "(imdbId, title, year, plot, rating, votes, runtime, trailerId, dateCreated, dateModified) " +
