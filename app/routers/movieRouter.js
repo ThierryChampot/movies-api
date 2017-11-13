@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const connection = require('../dbConnector');
-const MovieModel = require('../models/moviesModel');
+const MovieModel = require('../models/movieModel');
 
 const movieModel = new MovieModel(connection);
 
