@@ -232,9 +232,7 @@
         "plot",
         "rating",
         "votes",
-        "runtime",
-        "dateCreated",
-        "dateModified"
+        "runtime"
       ],
       "properties": {
         "id": {

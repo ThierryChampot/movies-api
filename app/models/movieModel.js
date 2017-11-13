@@ -9,7 +9,6 @@ class MovieModel {
             // this.db.end();
             if (!err) {
                 rows.forEach(movie => {
-                    console.log(movie.title);
                     const obj = {
                         "id": movie.id,
                         "imdbId": movie.imdbId,
@@ -45,7 +44,6 @@ class MovieModel {
     };
 
     createMovie(body, callback) {
-        console.log(body.title);
         const instant = new Date(Date.now()).toISOString();
         const sql =
             "INSERT INTO movie " +
@@ -70,6 +68,34 @@ class MovieModel {
             // this.db.end();
             if (!err) {
                 callback(null, result);
+            }
+            else
+                callback('Error while performing Query.', {})
+        });
+    };
+
+    updateMovie(id, body, callback) {
+        const instant = new Date(Date.now()).toISOString();
+        const sql =
+            "UPDATE movie " +
+            "SET ? " +
+            "WHERE id = ?";
+        const data = {
+                imdbId: body.imdbId,
+                title: body.title,
+                year: body.year,
+                plot: body.plot,
+                rating: body.rating,
+                votes: body.votes,
+                runtime: body.runtime,
+                trailerId: body.trailerId,
+                dateModified: instant
+            };
+
+        this.db.query(sql, [data, id], function(err, rows, fields) {
+            // this.db.end();
+            if (!err) {
+                callback(null, data);
             }
             else
                 callback('Error while performing Query.', {})
