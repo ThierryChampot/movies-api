@@ -245,28 +245,36 @@
           "type": "string"
         },
         "year": {
-          "type": "integer"
+          "type": "integer",
+          "minimum": 1880
         },
         "plot": {
           "type": "string"
         },
         "rating": {
-          "type": "number"
+          "type": "number",
+          "format": "float",
+          "minimum": 0,
+          "maximum": 10
         },
         "votes": {
-          "type": "integer"
+          "type": "integer",
+          "minimum": 0
         },
         "runtime": {
-          "type": "integer"
+          "type": "integer",
+          "minimum": 0
         },
         "trailerId": {
           "type": "string"
         },
         "dateCreated": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "dateModified": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         }
       }
     },
@@ -320,7 +328,7 @@
         },
         "dateCreated": {
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         }
       }
     }
