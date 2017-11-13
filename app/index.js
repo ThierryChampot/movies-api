@@ -8,7 +8,7 @@ const swaggerUi = require("swagger-ui-express"),
     swaggerDocument = require('../resources/swagger.json');
 
 // importer les routeurs
-const moviesRouter = require('./routers/moviesRouter'),
+const moviesRouter = require('./routers/movieRouter'),
     genresRouter = require('./routers/genresRouter'),
     peopleRouter = require('./routers/peopleRouter'),
     reviewRouter = require('./routers/reviewRouter');
