@@ -8,7 +8,7 @@ const movieModel = new MovieModel(connection);
 // réponse à l'url "/movies/:id"
 router.route('/:id')
     .get(function(req, res) {
-        const id = req.params.id;
+        const id = parseInt(req.params.id);
 
         movieModel.getMovieById(id, function(err, data) {
             if(err) {
@@ -18,6 +18,19 @@ router.route('/:id')
                 return res.json(data)
             }
         });
+    })
+    .put(function(req, res) {
+        const id = parseInt(req.params.id);
+        const body = req.body;
+
+        movieModel.updateMovie(id, body, function (err, data) {
+            if(err) {
+                console.log(err)
+            } else {
+                // Ajouter les détails acteurs...
+                return res.json(data)
+            }
+        })
     })
     .delete(function(req, res) {
         const id = req.params.id;
