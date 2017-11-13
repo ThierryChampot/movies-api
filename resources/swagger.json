@@ -236,7 +236,8 @@
       ],
       "properties": {
         "id": {
-          "type": "integer"
+          "type": "integer",
+          "readOnly": true
         },
         "imdbId": {
           "type": "string"
@@ -266,23 +267,56 @@
           "minimum": 0
         },
         "trailerId": {
-          "type": "string"
+          "type": "string",
+          "nullable": true
         },
         "dateCreated": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "readOnly": true
         },
         "dateModified": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "readOnly": true
+        },
+        "actors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/People"
+          },
+          "nullable": true
+        },
+        "directors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/People"
+          },
+          "nullable": true
+        },
+        "writers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/People"
+          },
+          "nullable": true
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Review"
+          },
+          "nullable": true
         }
       }
     },
     "People": {
       "required": ["name"],
+      "type": "object",
       "properties": {
         "id": {
-          "type": "integer"
+          "type": "integer",
+          "readOnly": true
         },
         "name": {
           "type": "string"
@@ -291,18 +325,16 @@
     },
     "Genre": {
       "required": ["name"],
+      "type": "object",
       "properties": {
         "id": {
-          "type": "integer"
+          "type": "integer",
+          "readOnly": true
         },
         "name": {
           "type": "string"
         }
       }
-    },
-    "Genres": {
-      "type": "array",
-      "$ref": "#/definitions/Genre"
     },
     "Review": {
       "required": [
@@ -310,9 +342,11 @@
         "content",
         "movieId"
       ],
+      "type": "object",
       "properties": {
         "id": {
-          "type": "integer"
+          "type": "integer",
+          "readOnly": true
         },
         "username": {
           "type": "string"
@@ -328,7 +362,8 @@
         },
         "dateCreated": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "readOnly": true
         }
       }
     }
