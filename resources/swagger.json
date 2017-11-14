@@ -71,6 +71,12 @@
             "schema": {
               "$ref": "#/definitions/Movie"
             }
+          },
+          "400": {
+            "description": "Bad request. Movie ID must be an integer larger than 0"
+          },
+          "404": {
+            "description": "A movie with the specified ID was not found"
           }
         }
       },
@@ -110,8 +116,14 @@
               "$ref": "#/definitions/Movie"
             }
           },
+          "400": {
+            "description": "Bad request. Movie ID must be an integer larger than 0"
+          },
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "description": "A movie with the specified ID was not found"
           }
         }
       },
@@ -139,8 +151,14 @@
           "204": {
             "description": "Deleted"
           },
+          "400": {
+            "description": "Bad request. Movie ID must be an integer larger than 0"
+          },
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "description": "A movie with the specified ID was not found"
           }
         }
       }
