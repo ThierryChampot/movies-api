@@ -120,7 +120,10 @@
             "description": "Bad request. Movie ID must be an integer larger than 0"
           },
           "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
+            "description": "Authorization information is missing or invalid.",
+            "schema": {
+              "$ref": "#/components/responses/UnauthorizedError"
+            }
           },
           "404": {
             "description": "A movie with the specified ID was not found"
@@ -155,7 +158,10 @@
             "description": "Bad request. Movie ID must be an integer larger than 0"
           },
           "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
+            "description": "Authorization information is missing or invalid.",
+            "schema": {
+              "$ref": "#/components/responses/UnauthorizedError"
+            }
           },
           "404": {
             "description": "A movie with the specified ID was not found"
@@ -210,7 +216,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
+            "description": "Authorization information is missing or invalid.",
+            "schema": {
+              "$ref": "#/components/responses/UnauthorizedError"
+            }
           }
         }
       }
