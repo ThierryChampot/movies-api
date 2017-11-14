@@ -34,6 +34,18 @@
         "in": "header",
         "name": "X-API-KEY"
       }
+    },
+    "responses": {
+      "UnauthorizedError": {
+        "description": "API key is missing or invalid",
+        "headers": {
+          "WWW_Authenticate": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
     }
   },
   "paths": {
@@ -97,6 +109,9 @@
             "schema": {
               "$ref": "#/definitions/Movie"
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
           }
         }
       },
@@ -123,6 +138,9 @@
         "responses": {
           "204": {
             "description": "Deleted"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
           }
         }
       }
@@ -172,6 +190,9 @@
             "schema": {
               "$ref": "#/definitions/Movie"
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
           }
         }
       }
