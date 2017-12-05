@@ -15,7 +15,7 @@ router.route('/:id')
                 console.log(err)
             } else {
                 // Ajouter les détails acteurs...
-                return res.json(data)
+                return res.status(200).json(data)
             }
         });
     })
@@ -28,7 +28,7 @@ router.route('/:id')
                 console.log(err)
             } else {
                 // Ajouter les détails acteurs...
-                return res.json(data)
+                return res.status(200).json(data)
             }
         })
     })
@@ -39,7 +39,7 @@ router.route('/:id')
             if(err) {
                 console.log(err)
             } else {
-                return res.json(data)
+                return res.status(204).json(data)
             }
         });
     });
@@ -53,7 +53,7 @@ router.route('/')
             if(err) {
                 console.log(err)
             } else {
-                return res.json(data)
+                return res.status(200).json(data)
             }
         })
     })
@@ -65,7 +65,7 @@ router.route('/')
                 console.log(err)
             } else {
                 // Ajouter les détails acteurs...
-                return res.json(data)
+                return res.status(201).json(data)
             }
         })
     });
